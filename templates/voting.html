@@ -1,0 +1,25 @@
+{% extends 'lay.html' %}
+
+{% block body %}
+{% from "inc/f-helper.html" import render_field %}
+<div class="order">
+<img src="{{url_for('static',filename ='pokemonsm5card.jpg')}}" alt="First slide" style="width:1000px;height:500px;"></br>
+<span><b>Sm5 Sun</b></span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="float"><b>Sm5 Moon</b></span>
+<p><h4>The card with highest vote will be the product on the ordering page </h4></p>
+<p><h4>The voting will end on 25/3/2018 00:00am</h4></p>
+<form name="oform" action= "/voting" method = "POST">
+  <fieldset>
+    <h1 id=demo></h1>
+    <div class="BK" >
+      <span> {{ form3.card}}</span>
+       {% for message in form3.card.errors %}
+       <span style="color:red">{{ message}}</span>
+       {% endfor %}
+    </div>
+
+               <p><input type="submit"  value="Vote" ></p>
+     </div>
+  </fieldset>
+</form>
+</div>
+{% endblock %}

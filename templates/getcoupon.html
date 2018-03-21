@@ -1,0 +1,31 @@
+{% extends 'lay.html' %}
+
+{% block body %}
+<h1>Please click button to get coupon!</h1>
+
+<button type="button" onclick="number()"> Click for coupon <span id ="clicktime"><span></button><br>
+
+<h2>Your lucky number is:<span id="YLnum"></span><br></h2>
+
+<div id="Emoji"></div>
+
+<script>
+var num = [];
+
+function number() {
+
+num.push(Math.floor((Math.random()*3)+1));
+
+document.getElementById("YLnum").innerHTML = num[num.length-1];
+document.getElementById("YLnum").innerHTML = num;
+
+var a = num.filter(x => x % 1 == 0);
+
+document.getElementById("YLnum").innerHTML = a;
+
+if (a.length >= 1) {
+
+document.getElementById("Emoji").innerHTML = "<p><h1>You must consume over$100 to use it! Please Show it</h1></p><img src={{url_for('static',filename ='gscoupon.png')}} alt=' No image'style='width:1200px;height:600px;' ><br/>";}
+document.getElementById("clicktime").innerText = num.length;}
+</script>
+{% endblock %}

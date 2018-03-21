@@ -1,0 +1,42 @@
+{% extends 'lay.html' %}
+
+{% block body %}
+{% from "inc/f-helper.html" import render_field %}
+<div>
+<img class="pic" src="{{url_for('static',filename ='pokrmoncard(1).jpg')}}" style="width:300px;height:300px;" >
+<div class="moform"  style="width:300px;height:600px;">
+<div class="border border-light">
+<form name="form" action= "/makeorder" method = "POST">
+  <fieldset>
+    <p>Ordering Form</p>
+    <h1 id=demo></h1>
+    <div class="BK" >
+       {{ form1.phone.label}}<br>
+       {{ form1.phone}}
+       {% for message in form1.phone.errors %}
+       <span style="color:green">{{ message}}</span>
+       {% endfor %}
+    </div>
+    <div class="BK" >
+       {{ form1.email.label }}<br>
+               {{ form1.email }}
+               {% for message in form1.email.errors %}
+               <span style="color:red"><strong>{{ message}}</strong></span>
+               {% endfor %}
+               <br>
+               <p><input type="submit"class="btn btn-outline-warning"  value="Order" ></p>
+     </div>
+  </fieldset>
+</form>
+</div>
+</div>
+<p>Description</p>
+<p>4xUltraRare</p>
+<p>10xSuperRare</p>
+<p>10xExtraRare</p>
+<p>15xRare</p>
+<p>30xCommon & 20xUncommon</p>
+<p>Please fill the form in right hand side</p>
+<b>Our staff will connect you to confirm your order</b>
+</div>
+{% endblock %}
